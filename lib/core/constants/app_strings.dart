@@ -14,11 +14,25 @@ class AppStrings {
   //authentication
   static const forgotUser = "Forget User / Password ?";
   static const donthaveAccount = "Don’t have an account?";
-  static const signUp = "Sign Up";
+  static const signUp = " Sign Up";
   static const login = "Login";
   static const password = "Password";
   static const userId = "User Id";
   static const loginToYourAccount = "Login to Your Account";
+  static const createYourAccount = "Create Your Account";
+  static const name = "Name";
+  static const email = "Email";
+  static const mobileNumber = "Mobile Number";
+  static const cnic = "CNIC";
+  static const iAgreeWith = "I agree with";
+  static const termsAndConditions = " Terms & Conditions";
+  static const fingerPrintNote =
+      "Place your finger in fingerprint\nsensor until the icon completely";
+  static const scanningNote =
+      "Once your scanning is complete, you will\nbe able to sign in by using fingerprint";
+  static const scanning = "Scanning..";
+  static const fingerprint = "Fingerprint";
+
   // static const forgotUser = "";
   // static const forgotUser = "";
 }

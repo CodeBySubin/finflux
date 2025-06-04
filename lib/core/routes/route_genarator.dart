@@ -1,4 +1,6 @@
+import 'package:finflux/features/authentication/presentation/page/finger_prints.dart';
 import 'package:finflux/features/authentication/presentation/page/login.dart';
+import 'package:finflux/features/authentication/presentation/page/register.dart';
 import 'package:finflux/features/home/presentation/home.dart';
 import 'package:finflux/features/onboardings/presentation/onboarding.dart';
 import 'package:finflux/features/onboardings/presentation/splash.dart';
@@ -24,10 +26,22 @@ class AppRouter {
         name: RouteNames.onboarding,
         builder: (context, state) => const Onboardings(),
       ),
-   GoRoute(
+
+      //Authentication
+      GoRoute(
         path: AppRoutes.login,
         name: RouteNames.login,
         builder: (context, state) => const Login(),
+      ),
+      GoRoute(
+        path: AppRoutes.register,
+        name: RouteNames.register,
+        builder: (context, state) => const Register(),
+      ),
+      GoRoute(
+        path: AppRoutes.fingerPrint,
+        name: RouteNames.fingerPrint,
+        builder: (context, state) => const FingerPrints(),
       ),
       // GoRoute(
       //   path: '${AppRoutes.productDetail}/:id',

@@ -20,6 +20,9 @@ Widget textButton({
       ),
     ),
     onPressed: onPressed,
-    child: Text(text, style: TextStyle(color: textcolor)),
+    child: Text(
+      text,
+      style: TextStyle(color: textcolor, fontWeight: FontWeight.bold),
+    ),
   );
 }

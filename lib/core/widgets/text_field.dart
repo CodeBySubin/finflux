@@ -26,7 +26,7 @@ class TextFieldWidget extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-        contentPadding: EdgeInsets.symmetric(vertical: 26.w, horizontal: 22.h),
+        contentPadding: EdgeInsets.symmetric(vertical: 18.w, horizontal: 22.h),
         filled: filled,
         fillColor: fillcolor,
         hintText: hintText,

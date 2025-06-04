@@ -1,11 +1,14 @@
-import 'package:finflux/core/constants/app_color.dart';
 import 'package:finflux/core/constants/constants.dart';
+import 'package:finflux/core/routes/routes.dart';
 import 'package:finflux/core/widgets/text_button.dart';
 import 'package:finflux/core/widgets/text_field.dart';
 import 'package:finflux/features/authentication/presentation/page/widgets/auth_background.dart';
+import 'package:finflux/features/authentication/presentation/page/widgets/finger_print_button.dart';
+import 'package:finflux/features/authentication/presentation/page/widgets/have_account_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -19,14 +22,14 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return AuthBackground(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(40.0),
         child: Column(
-          spacing: 49.h,
+          spacing: 30.h,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
               AppStrings.loginToYourAccount,
-              style: TextStyle(color: AppColor.white, fontSize: 33.sp),
+              style: TextStyle(color: AppColor.white, fontSize: 28.sp),
             ),
             TextFieldWidget(hintText: AppStrings.userId),
             TextFieldWidget(hintText: AppStrings.password),
@@ -35,33 +38,19 @@ class _LoginState extends State<Login> {
               onPressed: () {},
               size: Size(double.infinity, 80.h),
             ),
-
             Text(
               AppStrings.forgotUser,
               style: TextStyle(color: AppColor.white, fontSize: 17.sp),
             ),
-
-            RichText(
-              text: TextSpan(
-                text: AppStrings.donthaveAccount,
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 17.sp,
-                    color: AppColor.textgrey,
-                  ),
-                ),
-                children: [
-                  TextSpan(
-                    text: AppStrings.signUp,
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 17.sp,
-                        color: AppColor.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            fingerPrintButton(
+              onTap: () {
+                context.push(AppRoutes.fingerPrint);
+              },
+            ),
+            haveAcoountButton(
+              onTap: () => context.go(AppRoutes.register),
+              account: AppStrings.signUp,
+              title: AppStrings.donthaveAccount,
             ),
           ],
         ),
