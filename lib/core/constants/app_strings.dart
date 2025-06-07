@@ -1,5 +1,5 @@
 class AppStrings {
-  static const appTitle = "FinFlux";
+  static const appTitle = "FinTech";
   static const skip = "Skip";
 
   //onboardings
@@ -32,6 +32,7 @@ class AppStrings {
       "Once your scanning is complete, you will\nbe able to sign in by using fingerprint";
   static const scanning = "Scanning..";
   static const fingerprint = "Fingerprint";
+  static const signIn = " Sign in";
 
   // static const forgotUser = "";
   // static const forgotUser = "";

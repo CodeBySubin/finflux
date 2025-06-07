@@ -7,7 +7,6 @@ import 'package:finflux/features/authentication/presentation/page/widgets/finger
 import 'package:finflux/features/authentication/presentation/page/widgets/have_account_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
@@ -48,7 +47,7 @@ class _LoginState extends State<Login> {
               },
             ),
             haveAcoountButton(
-              onTap: () => context.go(AppRoutes.register),
+              onTap: () => context.pushReplacement(AppRoutes.register),
               account: AppStrings.signUp,
               title: AppStrings.donthaveAccount,
             ),

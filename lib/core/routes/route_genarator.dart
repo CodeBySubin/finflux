@@ -1,7 +1,7 @@
 import 'package:finflux/features/authentication/presentation/page/finger_prints.dart';
 import 'package:finflux/features/authentication/presentation/page/login.dart';
 import 'package:finflux/features/authentication/presentation/page/register.dart';
-import 'package:finflux/features/home/presentation/home.dart';
+import 'package:finflux/features/home/presentation/pages/home.dart';
 import 'package:finflux/features/onboardings/presentation/onboarding.dart';
 import 'package:finflux/features/onboardings/presentation/splash.dart';
 import 'app_routes.dart';

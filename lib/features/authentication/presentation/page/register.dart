@@ -1,12 +1,10 @@
 import 'package:finflux/core/routes/app_routes.dart';
-import 'package:finflux/core/widgets/text_field.dart';
 import 'package:finflux/features/authentication/presentation/page/widgets/auth_background.dart';
 import 'package:finflux/features/authentication/presentation/page/widgets/finger_print_button.dart';
 import 'package:finflux/features/authentication/presentation/page/widgets/have_account_button.dart';
 import 'package:finflux/features/authentication/presentation/page/widgets/terms_condition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/constants.dart';
@@ -61,12 +59,14 @@ class Register extends StatelessWidget {
             termAndCondition(),
             textButton(
               text: AppStrings.login,
-              onPressed: () {},
+              onPressed: () {
+                context.pushReplacement(AppRoutes.home);
+              },
               size: Size(double.infinity, 67.h),
             ),
             haveAcoountButton(
-              onTap: () => context.go(AppRoutes.register),
-              account: AppStrings.signUp,
+              onTap: () => context.pushReplacement(AppRoutes.login),
+              account: AppStrings.signIn,
               title: AppStrings.donthaveAccount,
             ),
           ],

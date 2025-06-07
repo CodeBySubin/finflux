@@ -12,4 +12,10 @@ class AppColor {
   static const buttonText = Color(0xFFC8CBCE);
   static const dotindicatorColor = Color(0xFF4F5962);
   static const textgrey = Color(0xFF8E949A);
+  
+  //Home
+    static const lightGrey = Color(0xFFA4A9AE);
+    static const quickActionGreen = Color(0xff13C999);
+    static const quickActionBlue = Color(0xff4B78FE);
+
 }
