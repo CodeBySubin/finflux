@@ -1,19 +1,37 @@
 import 'package:finflux/core/enums/enums.dart';
+import 'package:finflux/core/routes/routes.dart';
+import 'package:finflux/core/utils/toast_helper.dart';
+import 'package:finflux/core/utils/validator.dart';
+import 'package:finflux/features/authentication/domain/entities/auth_user.dart';
+import 'package:finflux/features/authentication/presentation/bloc/bloc.dart';
+import 'package:finflux/features/authentication/presentation/bloc/event.dart';
+import 'package:finflux/features/authentication/presentation/bloc/state.dart';
+import 'package:finflux/features/authentication/presentation/page/widgets/otp_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/widgets.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({super.key});
+  final AuthUser user;
+  const Otp({super.key, required this.user});
 
   @override
   State<Otp> createState() => _OtpState();
 }
 
 class _OtpState extends State<Otp> {
+  final TextEditingController controller = TextEditingController();
+  @override
+  void initState() {
+    context.read<AuthBloc>().add(AuthEvent.sendOtp(widget.user.mobile));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,26 +52,33 @@ class _OtpState extends State<Otp> {
                 AppStrings.otp,
                 style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30.sp),
               ),
-
               SizedBox(height: 15.h),
-
               CustomRichText(
                 highlightedStyle: TextStyle(
                   color: AppColor.colorprimary,
                   fontWeight: FontWeight.bold,
                 ),
                 normalText: AppStrings.pleaseEnterOtp,
-                highlightedText: ' +1 123 3698 789',
+                highlightedText: widget.user.mobile,
               ),
-
               SizedBox(height: 120.h),
-
               Pinput(
-                obscuringCharacter: "*",
-                obscureText: true,
+                length: 6,
+                controller: controller,
+                // obscuringCharacter: "*",
+                // obscureText: true,
+                defaultPinTheme: PinTheme(
+                  width: 54.w,
+                  height: 66.h,
+                  textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+                  decoration: BoxDecoration(
+                    color: AppColor.buttonText,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
                 focusedPinTheme: PinTheme(
-                  width: 56,
-                  height: 56,
+                  width: 54.w,
+                  height: 66.h,
                   textStyle: const TextStyle(fontSize: 20, color: Colors.black),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.blue, width: 2),
@@ -61,10 +86,32 @@ class _OtpState extends State<Otp> {
                   ),
                 ),
               ),
+              Spacer(),
               Text(AppStrings.dontReceiveAnOtp),
-              Text(AppStrings.resendOtp,style: TextStyle(color: Colors.black),),
+              Text(AppStrings.resendOtp, style: TextStyle(color: Colors.black)),
               SizedBox(height: 20.h),
-              textButton(text: "Next", onPressed: () {}),
+              BlocListener<AuthBloc, AuthState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                    loading: () => loader_widget(context),
+                    success: () => context.go(AppRoutes.home),
+                    failure: (error) => showToast(error),
+                  );
+                },
+                child: textButton(
+                  text: AppStrings.next,
+                  onPressed: () {
+                    if (Validator.validateOtp(controller.text)) {
+                      context.read<AuthBloc>().add(
+                        AuthEvent.verifyOtp(
+                          controller.text,
+                          widget.user.mobile,
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ),
             ],
           ),
         ),

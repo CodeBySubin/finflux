@@ -9,6 +9,7 @@ class TextFieldWidget extends StatelessWidget {
   final bool filled;
   final TextStyle? hintStyle;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
   const TextFieldWidget({
     super.key,
     required this.hintText,
@@ -16,13 +17,15 @@ class TextFieldWidget extends StatelessWidget {
     this.fillcolor = AppColor.white,
     this.filled = true,
     this.hintStyle,
-    this.suffixIcon,
+    this.suffixIcon, this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       controller: controller,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

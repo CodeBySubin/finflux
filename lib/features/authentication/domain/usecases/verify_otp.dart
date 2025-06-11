@@ -5,7 +5,7 @@ class VerifyOtp {
 
   VerifyOtp(this.repository);
 
-  Future<void> call(String verificationId, String smsCode) {
-    return repository.verifyOtp(verificationId, smsCode);
+  Future<void> call(String smsCode) {
+    return repository.verifyOtp(smsCode);
   }
 }

@@ -39,6 +39,7 @@ class AppStrings {
   static const otp = "OTP";
   static const dontReceiveAnOtp = "Don’t receive an OTP?";
   static const resendOtp = "Resend OTP";
+  static const next = "Next";
 
   // static const forgotUser = "";
   // static const forgotUser = "";

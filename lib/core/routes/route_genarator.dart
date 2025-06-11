@@ -1,3 +1,4 @@
+import 'package:finflux/features/authentication/domain/entities/auth_user.dart';
 import 'package:finflux/features/authentication/presentation/page/finger_prints.dart';
 import 'package:finflux/features/authentication/presentation/page/login.dart';
 import 'package:finflux/features/authentication/presentation/page/otp.dart';
@@ -47,7 +48,10 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.otp,
         name: RouteNames.otp,
-        builder: (context, state) => const Otp(),
+     builder: (context, state) {
+    final authUser = state.extra as AuthUser;
+    return Otp(user: authUser);
+  },
       ),
       // GoRoute(
       //   path: '${AppRoutes.productDetail}/:id',

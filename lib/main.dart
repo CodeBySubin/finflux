@@ -1,5 +1,7 @@
 import 'package:finflux/core/routes/routes.dart';
+import 'package:finflux/features/authentication/presentation/bloc/bloc.dart';
 import 'package:finflux/features/home/presentation/bloc/home_bloc.dart';
+import 'package:finflux/injection/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
+          BlocProvider<AuthBloc>(create: (_) => getIt<AuthBloc>()),
           BlocProvider<HomeBloc>(create: (BuildContext context) => HomeBloc()),
         ],
         child: MaterialApp.router(

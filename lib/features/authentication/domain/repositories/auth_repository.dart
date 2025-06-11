@@ -3,13 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final FirebaseAuth _fireBaseAuth;
-
   AuthRepositoryImpl(this._fireBaseAuth);
+  
   String _verificationId = "";
 
   @override
   Future<void> sendOtp(String phoneNumber) async {
     _fireBaseAuth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _fireBaseAuth.signInWithCredential(credential);
       },
@@ -26,9 +27,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> verifyOtp(String verificationId, String smsCode) async {
+  Future<void> verifyOtp(String smsCode) async {
     final credential = PhoneAuthProvider.credential(
-      verificationId: verificationId,
+      verificationId: _verificationId,
       smsCode: smsCode,
     );
   await _fireBaseAuth.signInWithCredential(credential);
