@@ -1,30 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import '../../../core/enums/app_bar_type.dart';
 import '../constants/constants.dart';
 
-
-  PreferredSizeWidget customAppbar(BuildContext context,) {
-    return AppBar(
-      centerTitle: true,
-      title: Text(
-        AppStrings.appTitle,
-        style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-      ),
-      leading: Row(
+PreferredSizeWidget customAppbar(
+  BuildContext context, {
+    String? title,
+  AppBarType leadingType = AppBarType.profile,
+}) {
+  Widget? leading;
+  switch (leadingType) {
+    case AppBarType.profile:
+      leading = Row(
         children: [
-          Spacer(),
+          const Spacer(),
           Stack(
             children: [
-             CircleAvatar(
-              backgroundImage: AssetImage(AppImage.person),
-          
-             ),
+              const CircleAvatar(backgroundImage: AssetImage(AppImage.person)),
               Positioned(
                 top: -2,
                 right: -2,
@@ -41,21 +35,47 @@ import '../constants/constants.dart';
             ],
           ),
         ],
-      ),
-      actions: [
-        IconButton(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all<Color>(
-              AppColor.lightGrey.withValues(alpha: 0.2),
-            ),
-            shape: WidgetStateProperty.all<OutlinedBorder>(
-              const CircleBorder(),
-            ),
+      );
+      break;
+    case AppBarType.arrowBack:
+      leading = IconButton(
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(
+            AppColor.lightGrey.withAlpha(50),
           ),
-          onPressed: () {},
-          icon: SvgPicture.asset(AppIcons.bellIcon),
+          shape: WidgetStateProperty.all<OutlinedBorder>(const CircleBorder()),
         ),
-      ],
-    );
+        icon: const Icon(
+          Icons.arrow_back_ios_new_outlined,
+          color: AppColor.textgrey,
+        ),
+        onPressed: () => context.pop(),
+      );
+      break;
   }
 
+  return AppBar(
+    centerTitle: true,
+    title: Text(title??
+      AppStrings.appTitle,
+      style: const TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      ),
+    ),
+    leading: leading,
+    actions: [
+      IconButton(
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(
+            AppColor.lightGrey.withAlpha(50),
+          ),
+          shape: WidgetStateProperty.all<OutlinedBorder>(const CircleBorder()),
+        ),
+        onPressed: () {},
+        icon: SvgPicture.asset(AppIcons.bellIcon),
+      ),
+    ],
+  );
+}

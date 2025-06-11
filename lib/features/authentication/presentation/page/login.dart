@@ -17,6 +17,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+    final TextEditingController mobilenumber = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return AuthBackground(
@@ -30,11 +32,15 @@ class _LoginState extends State<Login> {
               AppStrings.loginToYourAccount,
               style: TextStyle(color: AppColor.white, fontSize: 28.sp),
             ),
-            TextFieldWidget(hintText: AppStrings.userId),
+            TextFieldWidget(
+              controller: mobilenumber,
+              hintText: AppStrings.userId),
             TextFieldWidget(hintText: AppStrings.password),
             textButton(
               text: AppStrings.login,
-              onPressed: () {},
+              onPressed: () {
+                context.push(AppRoutes.otp);
+              },
               size: Size(double.infinity, 80.h),
             ),
             Text(

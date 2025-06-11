@@ -7,6 +7,7 @@ class AppRoutes {
   static const login = '/login';
   static const register = '/register';
   static const fingerPrint = '/fingerprint';
+  static const otp = '/otp';
 }
 
 class RouteNames {
@@ -18,4 +19,5 @@ class RouteNames {
   static const login = 'login';
   static const register = 'register';
   static const fingerPrint = 'fingerprint';
+  static const otp = 'otp';
 }

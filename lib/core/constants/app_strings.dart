@@ -32,7 +32,13 @@ class AppStrings {
       "Once your scanning is complete, you will\nbe able to sign in by using fingerprint";
   static const scanning = "Scanning..";
   static const fingerprint = "Fingerprint";
-  static const signIn = " Sign in";
+  static const signIn = "Sign in";
+  static const otpVerification = "OTP Verification";
+  static const pleaseEnterOtp =
+      "Please enter the OTP send to your\nmobile number";
+  static const otp = "OTP";
+  static const dontReceiveAnOtp = "Don’t receive an OTP?";
+  static const resendOtp = "Resend OTP";
 
   // static const forgotUser = "";
   // static const forgotUser = "";

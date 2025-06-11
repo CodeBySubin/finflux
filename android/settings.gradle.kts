@@ -8,7 +8,9 @@ pluginManagement {
     }
 
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
-
+  plugins {
+        id("com.google.gms.google-services") version "4.4.2"
+    }
     repositories {
         google()
         mavenCentral()

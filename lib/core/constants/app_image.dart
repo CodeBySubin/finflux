@@ -8,4 +8,5 @@ class AppImage {
   static const masterCard = "assets/images/mastercard.png";
   static const greenMasterCard = "assets/images/green_card.png";
   static const person = "assets/images/person.jpg";
+  static const otpImage = "assets/images/otp_image.png";
 }

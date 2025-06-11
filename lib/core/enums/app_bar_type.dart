@@ -1,0 +1,1 @@
+enum AppBarType { arrowBack, profile }
