@@ -22,7 +22,7 @@ String getFirebaseAuthErrorMessage(FirebaseAuthException e) {
       return 'Too many attempts. Try again later.';
     case 'network-request-failed':
       return 'Please check your internet connection.';
-          case 'BILLING_NOT_ENABLED':
+          case 'channel-error':
       return 'billing is not enabled';
     default:
       return 'An unexpected error occurred. Please try again.';

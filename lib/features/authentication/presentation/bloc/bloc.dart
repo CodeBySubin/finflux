@@ -1,4 +1,4 @@
-import 'package:finflux/core/errors.dart/exception.dart';
+import 'package:finflux/core/errors/exception.dart';
 import 'package:finflux/features/authentication/domain/usecases/send_otp.dart';
 import 'package:finflux/features/authentication/domain/usecases/verify_otp.dart';
 import 'package:finflux/features/authentication/presentation/bloc/event.dart';

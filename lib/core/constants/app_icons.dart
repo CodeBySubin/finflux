@@ -6,7 +6,13 @@ class AppIcons {
   static const qrScannerIcon = "assets/icons/qrscanner_icon.svg";
   static const locationIcon = "assets/icons/location_icon.svg";
   static const bellIcon = "assets/icons/bell_icon.svg";
+  //Home
   static const moneyTransferIcon = "assets/icons/money_transfer_icon.svg";
-  static const bankToBaknkIcon = "assets/icons/bank_to_Bank_icon.svg";
+  static const bankToBaknkIcon = "assets/icons/bank_to_bank_icon.svg";
   static const payBillIcon = "assets/icons/pay_bill_icon.svg";
+  static const rechargeIcon = "assets/icons/recharge_icon.svg";
+  static const loanIcon = "assets/icons/loan_icon.svg";
+  static const insuranceIcon = "assets/icons/insurance_icon.svg";
+  static const giftsIcon = "assets/icons/gifts_icon.svg";
+  static const charityIcon = "assets/icons/charity_icon.svg";
 }

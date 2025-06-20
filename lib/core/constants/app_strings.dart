@@ -40,7 +40,11 @@ class AppStrings {
   static const dontReceiveAnOtp = "Don’t receive an OTP?";
   static const resendOtp = "Resend OTP";
   static const next = "Next";
-
-  // static const forgotUser = "";
-  // static const forgotUser = "";
+  static const quickAction = "Quick Action";
+  static const services = "Services";
+  static const recharge = "Recharge";
+  static const charity = "Charity";
+  static const gifts = "Gifts";
+  static const loan = "Loan";
+  static const insurance = "Insurance";
 }

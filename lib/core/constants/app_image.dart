@@ -9,4 +9,8 @@ class AppImage {
   static const greenMasterCard = "assets/images/green_card.png";
   static const person = "assets/images/person.jpg";
   static const otpImage = "assets/images/otp_image.png";
+  //Home
+  static const netflix = "assets/images/netflix.png";
+  static const paypal = "assets/images/paypal.png";
+  static const spotify = "assets/images/spotify.png";
 }

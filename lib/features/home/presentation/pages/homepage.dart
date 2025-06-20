@@ -2,6 +2,10 @@ import 'package:finflux/core/constants/app_image.dart';
 import 'package:finflux/features/home/presentation/pages/widgets/card_slider/card_slider.dart';
 import 'package:finflux/features/home/presentation/pages/widgets/quick_actions.dart/dummy_data.dart';
 import 'package:finflux/features/home/presentation/pages/widgets/quick_actions.dart/quick_action.dart';
+import 'package:finflux/features/home/presentation/pages/widgets/scedule_payment/scehule_payments.dart';
+import 'package:finflux/features/home/presentation/pages/widgets/scedule_payment/schedule_paymen_data.dart';
+import 'package:finflux/features/home/presentation/pages/widgets/services/service_dummy_data.dart';
+import 'package:finflux/features/home/presentation/pages/widgets/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +28,9 @@ class _HomePageState extends State<HomePage> {
             CardSlider(
               cardImage: [AppImage.masterCard, AppImage.greenMasterCard],
             ),
-            QuickAction(data: quickActionData,),
+            QuickAction(data: quickActionData),
+            HomeServices(data: serviceData),
+            ScehulePayments(data: schedulePaymet),
           ],
         ),
       ),

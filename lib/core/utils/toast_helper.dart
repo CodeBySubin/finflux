@@ -4,5 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 void showToast(String message) {
   Fluttertoast.showToast(
     gravity: ToastGravity.TOP,
-    msg: message, backgroundColor: AppColor.colorprimary);
+    msg: message,
+    fontSize: 15,
+    backgroundColor: AppColor.colorprimary,
+  );
 }

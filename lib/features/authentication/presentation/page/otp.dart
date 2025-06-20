@@ -26,11 +26,14 @@ class Otp extends StatefulWidget {
 
 class _OtpState extends State<Otp> {
   final TextEditingController controller = TextEditingController();
-  @override
-  void initState() {
+@override
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
     context.read<AuthBloc>().add(AuthEvent.sendOtp(widget.user.mobile));
-    super.initState();
-  }
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -85,17 +88,32 @@ class _OtpState extends State<Otp> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
+                autofillHints: const [AutofillHints.oneTimeCode],
+                onCompleted:
+                    (pin) => context.read<AuthBloc>().add(
+                      AuthEvent.verifyOtp(controller.text, widget.user.mobile),
+                    ),
               ),
               Spacer(),
               Text(AppStrings.dontReceiveAnOtp),
-              Text(AppStrings.resendOtp, style: TextStyle(color: Colors.black)),
+              Text(
+                AppStrings.resendOtp,
+                style: TextStyle(
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
               SizedBox(height: 20.h),
               BlocListener<AuthBloc, AuthState>(
                 listener: (context, state) {
                   state.whenOrNull(
-                    loading: () => loader_widget(context),
+                    loading: () => otpLoader(context),
                     success: () => context.go(AppRoutes.home),
-                    failure: (error) => showToast(error),
+                    otpsend:()=> showToast("Otp send to your device"),
+                    failure: (error) {
+                      context.pop();
+                      showToast(error);
+                    },
                   );
                 },
                 child: textButton(
@@ -119,3 +137,5 @@ class _OtpState extends State<Otp> {
     );
   }
 }
+
+

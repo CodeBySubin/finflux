@@ -1,7 +1,7 @@
 import 'package:finflux/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
-Future<T?> loader_widget<T>(BuildContext context) {
+Future<T?> otpLoader<T>(BuildContext context) {
   return showDialog<T>(
     context: context,
     barrierDismissible: false,

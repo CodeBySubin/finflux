@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+//https://www.figma.com/design/bWxHOsXJcMxkxWgGRbTsT7/FinFlux-Fintech-App--Community-?node-id=0-1&p=f&t=AaHwtx6DzAUN0rkt-0
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

@@ -1,3 +1,4 @@
+import 'package:finflux/core/constants/constants.dart';
 import 'package:finflux/features/home/presentation/pages/widgets/quick_actions.dart/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,25 +13,29 @@ class QuickAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.only(left: 18.w),
       child: Column(
+        spacing: 10.h,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Quick Action"),
+          Text(AppStrings.quickAction, style: AppStyle.heading),
           HorizontalListview(
             data: quickActionData,
             length: data.length,
             height: 150.h,
             itemBuilder: (BuildContext context, int index) {
               return Card(
+                elevation: 0,
+                color: AppColor.white,
                 child: SizedBox(
                   width: 130,
                   child: Column(
+                    spacing: 5.h,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(6),
                           color: (data[index]['color'] as Color).withValues(
                             alpha: 0.2,
                           ),
@@ -40,7 +45,7 @@ class QuickAction extends StatelessWidget {
                           child: SvgPicture.asset(data[index]['Image']),
                         ),
                       ),
-                      Text(data[index]['title']),
+                      Text(data[index]['title'], style: AppStyle.subHeading),
                     ],
                   ),
                 ),
