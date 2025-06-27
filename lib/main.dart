@@ -43,3 +43,30 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// /lib
+// ├── core/
+// │   ├── constants/
+// │   ├── exceptions/
+// │   ├── utils/
+// │   └── widgets/
+// │
+// ├── data/
+// │   └── services/               → API calls, Firebase, local DB
+// │
+// ├── models/
+// │   └── user_model.dart         → Pure data classes
+// │
+// ├── viewmodels/
+// │   ├── base_viewmodel.dart     → Common loading/error logic
+// │   └── user_viewmodel.dart     → Handles logic & state
+// │
+// ├── views/
+// │   ├── user/
+// │   │   ├── user_screen.dart    → UI Widgets
+// │   │   └── user_tile.dart
+// │   └── common/
+// │       └── custom_button.dart
+// │
+// ├── main.dart
+// └── locator.dart                → Dependency Injection (get_it)

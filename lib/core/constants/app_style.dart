@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppStyle {
   static const TextStyle heading = TextStyle(
@@ -6,10 +7,8 @@ class AppStyle {
     fontWeight: FontWeight.w900,
   );
 
-  static const TextStyle subHeading = TextStyle(
-    fontSize: 13.0,
-    fontWeight: FontWeight.w700,
-  );
+  static TextStyle get subHeading =>
+      GoogleFonts.montserrat(fontSize: 13.0, fontWeight: FontWeight.w700);
 
   static const TextStyle body = TextStyle(
     fontSize: 12.0,
@@ -41,4 +40,7 @@ class AppStyle {
     color: Colors.red,
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle get smallBoldTitle =>
+      GoogleFonts.montserrat(fontWeight: FontWeight.w700, fontSize: 15);
 }

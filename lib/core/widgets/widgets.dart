@@ -4,3 +4,4 @@ export 'indicator.dart';
 export 'app_bar.dart';
 export 'horizontal_listview.dart';
 export 'custom_rich_text.dart';
+export 'paymentcard.dart';

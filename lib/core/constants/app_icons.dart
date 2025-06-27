@@ -15,4 +15,7 @@ class AppIcons {
   static const insuranceIcon = "assets/icons/insurance_icon.svg";
   static const giftsIcon = "assets/icons/gifts_icon.svg";
   static const charityIcon = "assets/icons/charity_icon.svg";
+  //////////////////////analytics////////////////////////
+  static const moneyUpIcon = "assets/icons/money_arrow_up_icon.svg";
+  static const moneyDownIcon = "assets/icons/money_arrow_down_icon.svg";
 }

@@ -7,7 +7,7 @@ import '../constants/constants.dart';
 
 PreferredSizeWidget customAppbar(
   BuildContext context, {
-    String? title,
+  String? title,
   AppBarType leadingType = AppBarType.profile,
 }) {
   Widget? leading;
@@ -56,8 +56,9 @@ PreferredSizeWidget customAppbar(
 
   return AppBar(
     centerTitle: true,
-    title: Text(title??
-      AppStrings.appTitle,
+    forceMaterialTransparency: true,
+    title: Text(
+      title ?? AppStrings.appTitle,
       style: const TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.bold,

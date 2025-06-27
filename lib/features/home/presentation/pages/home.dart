@@ -1,5 +1,6 @@
 import 'package:finflux/core/constants/constants.dart';
 import 'package:finflux/core/widgets/app_bar.dart';
+import 'package:finflux/features/analytics/presentation/analytics.dart';
 import 'package:finflux/features/home/presentation/bloc/home_bloc.dart';
 import 'package:finflux/features/home/presentation/bloc/home_event.dart';
 import 'package:finflux/features/home/presentation/bloc/home_state.dart';
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
     HomePage(),
     Center(child: Container(child: Text("map"))),
     Center(child: Container(child: Text("qr"))),
-    Container(child: Text("home")),
+    Analytics(),
     Container(child: Text("home")),
   ];
 
@@ -35,16 +36,13 @@ class _HomeState extends State<Home> {
               elevation: 6,
               selectedItemColor: AppColor.colorprimary,
               currentIndex: state.index,
+              type: BottomNavigationBarType.fixed,
               onTap:
                   (value) => context.read<HomeBloc>().add(ChangeIndex(value)),
               items: [
                 BottomNavigationBarItem(
                   label: "",
                   icon: SvgPicture.asset(AppIcons.homeIcon),
-                  activeIcon: SvgPicture.asset(
-                    AppIcons.homeIcon,
-                    color: AppColor.colorprimary,
-                  ),
                 ),
                 BottomNavigationBarItem(
                   label: "",

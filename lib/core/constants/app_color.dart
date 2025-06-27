@@ -17,5 +17,6 @@ class AppColor {
     static const lightGrey = Color(0xFFA4A9AE);
     static const quickActionGreen = Color(0xff13C999);
     static const quickActionBlue = Color(0xff4B78FE);
+    static const moneyRed = Color(0xffFF6363);
 
 }

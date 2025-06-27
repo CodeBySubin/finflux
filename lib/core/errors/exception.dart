@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 String getFirebaseAuthErrorMessage(FirebaseAuthException e) {
+  if (e.message!.contains("BILLING_NOT_ENABLED ")) {
+    return "billing is not enabled";
+  }
   switch (e.code) {
     case 'invalid-verification-code':
       return 'The verification code is invalid.';
@@ -22,7 +25,7 @@ String getFirebaseAuthErrorMessage(FirebaseAuthException e) {
       return 'Too many attempts. Try again later.';
     case 'network-request-failed':
       return 'Please check your internet connection.';
-          case 'channel-error':
+    case 'channel-error':
       return 'billing is not enabled';
     default:
       return 'An unexpected error occurred. Please try again.';

@@ -1,3 +1,4 @@
+import 'package:finflux/features/analytics/presentation/analytics.dart';
 import 'package:finflux/features/authentication/domain/entities/auth_user.dart';
 import 'package:finflux/features/authentication/presentation/page/finger_prints.dart';
 import 'package:finflux/features/authentication/presentation/page/login.dart';
@@ -11,7 +12,7 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.splash,
+    initialLocation: AppRoutes.home,
     routes: [
       GoRoute(
         path: AppRoutes.splash,
@@ -29,7 +30,7 @@ class AppRouter {
         builder: (context, state) => const Onboardings(),
       ),
 
-      //Authentication
+      ////////////////////////Authentication/////////////////////////
       GoRoute(
         path: AppRoutes.login,
         name: RouteNames.login,
@@ -48,10 +49,17 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.otp,
         name: RouteNames.otp,
-     builder: (context, state) {
-    final authUser = state.extra as AuthUser;
-    return Otp(user: authUser);
-  },
+        builder: (context, state) {
+          final authUser = state.extra as AuthUser;
+          return Otp(user: authUser);
+        },
+      ),
+
+      ///////////////////analytics////////////////////////////
+      GoRoute(
+        path: AppRoutes.analytics,
+        name: RouteNames.analytics,
+        builder: (context, state) => const Analytics(),
       ),
       // GoRoute(
       //   path: '${AppRoutes.productDetail}/:id',

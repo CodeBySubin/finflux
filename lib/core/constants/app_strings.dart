@@ -47,4 +47,11 @@ class AppStrings {
   static const gifts = "Gifts";
   static const loan = "Loan";
   static const insurance = "Insurance";
+  static const scedulePayment = "Schedule Payments";
+  ///////////analytics/////////////////
+  static const availableBalance = "Available Balance";
+  static const lastThirtyDAy = "Last 30 days";
+  static const recentTransaction = "Recent Transactions";
+  static const moneyIn = "Money In";
+  static const moneyOut = "Money Out";
 }
