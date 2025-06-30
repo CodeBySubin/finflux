@@ -3,6 +3,8 @@ import 'dart:ui';
 class AppColor {
   static const colorprimary = Color(0xFF456EFE);
   static const white = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
+
 
   //onboardings
   static const splashBackground = Color(0xFF23303B);

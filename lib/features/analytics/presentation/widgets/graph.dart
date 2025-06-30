@@ -1,4 +1,5 @@
 import 'package:finflux/core/constants/app_color.dart';
+import 'package:finflux/core/constants/app_style.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -115,7 +116,7 @@ class AnlyticsGraph extends StatelessWidget {
                         'Dec',
                       ];
                       if (value >= 1 && value <= 12) {
-                        return Text(months[value.toInt()]);
+                        return Text(months[value.toInt()],style: AppStyle.smallTextgrey,);
                       } else {
                         return const SizedBox.shrink();
                       }

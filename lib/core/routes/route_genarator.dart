@@ -5,6 +5,7 @@ import 'package:finflux/features/authentication/presentation/page/login.dart';
 import 'package:finflux/features/authentication/presentation/page/otp.dart';
 import 'package:finflux/features/authentication/presentation/page/register.dart';
 import 'package:finflux/features/home/presentation/pages/home.dart';
+import 'package:finflux/features/loan/presenation/page/loan.dart';
 import 'package:finflux/features/onboardings/presentation/onboarding.dart';
 import 'package:finflux/features/onboardings/presentation/splash.dart';
 import 'app_routes.dart';
@@ -12,7 +13,7 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.home,
+    initialLocation: AppRoutes.loan,
     routes: [
       GoRoute(
         path: AppRoutes.splash,
@@ -61,6 +62,13 @@ class AppRouter {
         name: RouteNames.analytics,
         builder: (context, state) => const Analytics(),
       ),
+      /////////////////////////Loan//////////////////////////
+      GoRoute(
+        path: AppRoutes.loan,
+        name: RouteNames.loan,
+        builder: (context, state) => const Loan(),
+      ),
+
       // GoRoute(
       //   path: '${AppRoutes.productDetail}/:id',
       //   name: RouteNames.productDetail,

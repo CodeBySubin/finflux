@@ -25,19 +25,11 @@ class _AnalyticsState extends State<Analytics> {
           children: [
             Text(
               AppStrings.availableBalance,
-              style: AppStyle.caption.copyWith(fontSize: 12),
+              style: AppStyle.smallTextgrey,
             ),
             CustomRichText(
-              normalStyle: GoogleFonts.montserrat(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25.sp,
-              ),
-              highlightedStyle: GoogleFonts.montserrat(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15.sp,
-              ),
+              normalStyle:AppStyle.largeBoldTextBlack,
+              highlightedStyle: AppStyle.mediumTextBlack,
               normalText: "\$4,228.",
               highlightedText: "76",
             ),

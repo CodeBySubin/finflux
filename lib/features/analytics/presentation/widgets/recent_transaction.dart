@@ -1,4 +1,5 @@
 import 'package:finflux/core/constants/constants.dart';
+import 'package:finflux/core/widgets/bottomsheet.dart';
 import 'package:finflux/core/widgets/paymentcard.dart';
 import 'package:finflux/dummy_data/analytics.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,19 @@ class RecentTransaction extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(AppStrings.recentTransaction, style: AppStyle.smallBoldTitle),
-          Paymentcard(data: analytics),
+          Paymentcard(
+            data: analytics,
+            ontap: (item) {
+              displayBottomSheet(
+                context: context,
+                widget: IconBottomSheet(
+                  icon: item["image"],
+                  amount: item['amount'],
+                  title: item["title"]
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

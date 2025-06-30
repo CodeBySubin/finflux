@@ -5,15 +5,17 @@ class AppRoutes {
   static const onboarding = '/onboarding';
 
 
-  //analytics
+  ///////////analytics////////////////
   static const analytics = '/analytics';
 
 
-  //authentication
+  ////////authentication////////
   static const login = '/login';
   static const register = '/register';
   static const fingerPrint = '/fingerprint';
   static const otp = '/otp';
+  ///////loan/////////////
+  static const loan = '/loan';
 }
 
 class RouteNames {
@@ -21,12 +23,15 @@ class RouteNames {
   static const home = 'home';
   static const onboarding = 'onboarding';
 
-  //analytics
+  //////////////analytics//////////////
   static const analytics = 'analytics';
 
-  //authentication
+  //////////authentication///////////
   static const login = 'login';
   static const register = 'register';
   static const fingerPrint = 'fingerprint';
   static const otp = 'otp';
+
+  ///////loan/////////////
+  static const loan = 'loan';
 }

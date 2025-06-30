@@ -15,8 +15,6 @@ class HomeServices extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 18.w),
       child: Column(
-
-        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(AppStrings.services, style: AppStyle.heading),
